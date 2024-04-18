@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Poppins:wght@500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  img {
+    max-width: 100%;
+  }
+  a {
+    text-decoration: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  ul {
+    list-style: none;
+    /* color: hsl(230, 25%, 95%); */
+  }
+}
+@layer components {
+  /* REUSABLE COMPONENTS */
+  .cont {
+    @apply max-w-[70rem] w-[100%] mx-auto px-5;
+  }
+  .btn {
+    @apply inline-block py-2 px-7  rounded-full bg-Cyan text-white;
+  }
+  .mobile {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: all 2s ease;
+  }
+  .mobile-nav {
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: visible;
+    opacity: 1;
+
+    transform: translateY(0);
+    transition: all 0.4s ease;
+  }
+
+  /* Toggle class for mobile cont */
+  .hide-mobile {
+    opacity: 1;
+    visibility: hidden;
+  }
+  /* Toggle class for mobile navigation */
+  .hide-mobile-navi {
+    transform: translateY(-50px);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .navigation-ct {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 5rem;
+  }
+  .loginbtn {
+    position: relative;
+  }
+  .loginbtn::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff3e;
+    top: -0.5rem;
+  }
+  .hamburger-btn {
+    display: none;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: transparent;
+  }
+  .hamburger-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    background-color: #333;
+  }
+  .nav-link {
+    color: hsl(0, 0%, 75%);
+  }
+  .form-ct {
+    background-image: linear-gradient(
+        hsla(258, 27%, 26%, 0.882),
+        hsla(258, 27%, 26%, 0.879)
+      ),
+      url(/images/bg-shorten-desktop.svg);
+    background-size: cover;
+  }
+
+  /* #link-error {
+    display: none;
+  } */
+
+  .form-link-input {
+    border: 2px solid transparent;
+  }
+  .form-link-input:focus {
+    outline: transparent;
+  }
+  .error-msg {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    color: hsl(0, 87%, 67%);
+    font-style: italic;
+
+    transition: all 0.2s;
+  }
+  /* Default Css validation */
+  /* #link-error {
+    display: none;
+    color: hsl(0, 87%, 67%);
+  }
+  .form-link-input:invalid + #link-error {
+    display: none;
+  }
+  .form-link-input:invalid {
+    border: 2px solid hsl(0, 87%, 67%);
+  }
+  .form-link-input:invalid::placeholder {
+    color: hsl(0, 87%, 67%);
+  }
+  .form-link-input:valid {
+    border: 2px solid hsl(132, 58%, 38%);
+  }
+  .form-link-input:invalid + #link-error {
+    display: block;
+  } */
+
+  /* Custom styling for js validation */
+  .error-msg-hide {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+  .input-invalid {
+    outline: hsl(0, 87%, 67%);
+    border: 2px solid hsl(0, 87%, 67%);
+  }
+  .input-invalid::placeholder {
+    color: hsl(0, 87%, 67%);
+  }
+
+  .calltoaction {
+    background-image: linear-gradient(
+        hsla(258, 27%, 26%, 0.939),
+        hsla(258, 27%, 26%, 0.939)
+      ),
+      url(/images/bg-boost-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .footer-link-cont > *:not(:first-child) {
+    color: hsl(0, 0%, 75%);
+  }
+
+  .footer-socials li svg {
+    fill: #fff;
+  }
+
+  @media screen and (min-width: 768px) {
+    .nav-link:hover {
+      color: hsl(260, 8%, 14%);
+    }
+    .submit-btn:hover,
+    .copy-btn:hover,
+    .btn:hover {
+      background-color: hsla(180, 66%, 49%, 0.608);
+    }
+    .footer-socials li svg:hover {
+      fill: hsl(180, 66%, 49%);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .footer-link:hover {
+      color: hsl(180, 66%, 49%);
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+  }
+}
