@@ -132,21 +132,17 @@ if (JSON.parse(localStorage.getItem("items"))) {
 
 // copy to clipboard functionality
 const linkCont = document.querySelector(".link-cont");
-const shortenedUrl = document.querySelector(".shortenedUrl");
 
 parentLinkCont.addEventListener("click", function (event) {
-  // Getting the Shortened url
-  let text;
-  if (event.target.classList.contains("shortenedUrl")) {
-    text = shortenedUrl.innerHTML;
-  }
+  // Read the shortened url
+  const shortenedUrl = document.querySelector(".shortenedUrl");
 
   // Attaching the event handler to the button inorder for us to be able to copy the shortened url
   if (event.target.classList.contains("copy-btn")) {
     /*Here we interact with the clipboard API which will enable us to copy the shortened URL */
     const copyContent = async () => {
       try {
-        // let text = shortenedUrl.innerHTML;
+        let text = shortenedUrl.innerHTML;
         await navigator.clipboard.writeText(text);
 
         event.target.style.backgroundColor = "hsl(257, 27%, 26%)";
